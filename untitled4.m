@@ -64,7 +64,13 @@ figure;
 plot(time_data, temp_data, 'b-', 'LineWidth', 1.5); 
 title('Capsule Temperature Monitoring over 10 Minutes'); 
 
+xlabel('Time (s)'); 
 
+ylabel('Temperature (^{\circ}C)'); 
+
+grid on; 
+
+disp('Plot generated successfully! Please save this plot as an image and include it in your Word template.');
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
