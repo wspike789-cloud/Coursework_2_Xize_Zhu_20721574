@@ -35,6 +35,25 @@ sensor_pin = 'A0';
 disp('Data logging started. Please wait for 10 minutes...');
 
 
+for t = 1:duration
+    
+    voltage = readVoltage(a, sensor_pin);
+    
+    temperature = (voltage - v_0) / t_c;
+    
+    time_data(t) = t;
+    temp_data(t) = temperature;
+    
+    pause(1);
+    
+    if mod(t, 60) == 0
+        fprintf('Progress: Logged %d minute(s)...\n', t/60);
+    end
+end
+
+disp('Data acquisition completed.');
+
+
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
 % Insert answers here
