@@ -60,6 +60,11 @@ fprintf('Minimum Temperature: %.2f C\n', min_temp);
 fprintf('Maximum Temperature: %.2f C\n', max_temp);
 fprintf('Average Temperature: %.2f C\n', avg_temp);
 
+figure; 
+plot(time_data, temp_data, 'b-', 'LineWidth', 1.5); 
+title('Capsule Temperature Monitoring over 10 Minutes'); 
+
+
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
