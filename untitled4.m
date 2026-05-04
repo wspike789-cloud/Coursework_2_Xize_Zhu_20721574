@@ -49,6 +49,11 @@ end
 
 disp('Data acquisition completed.');
 
+disp('Performing statistical calculations and generating plot...');
+
+min_temp = min(temp_data);
+max_temp = max(temp_data);
+avg_temp = mean(temp_data);
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
