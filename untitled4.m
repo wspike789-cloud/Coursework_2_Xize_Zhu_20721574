@@ -81,6 +81,17 @@ location = 'Nottingham';
 
 log_text = sprintf('Data logging initiated - %s\n\nLocation - %s\n\n', current_date, location);
 
+for m = 0:10
+    if m == 0
+        idx = 1; % Minute 0 refers to the 1st second (index 1)
+    else
+        idx = m * 60; % Minute 1 is 60s, Minute 2 is 120s, etc.
+    end
+   
+    log_text = [log_text, sprintf('Minute\t%d\tTemperature\t%.2f C\n\n', m, current_temp)];
+end
+
+
 
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
