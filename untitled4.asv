@@ -1,0 +1,123 @@
+% Insert name here
+% Insert email address here
+
+
+%% PRELIMINARY TASK - ARDUINO AND GIT INSTALLATION [5 MARKS]
+if ~exist('a', 'var')
+    a = arduino('COM3', 'Uno'); 
+end
+led_pin = 'D13'; 
+
+disp('Arduino connection established. Starting LED blink test...');
+for i = 1:10
+writeDigitalPin(a, led_pin, 1);
+pause(0.5);
+writeDigitalPin(a, led_pin, 0);
+pause(0.5); 
+    
+end
+
+disp('Preliminary task completed successfully!');
+
+%% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
+
+duration = 600; 
+time_data = zeros(1, duration); 
+temp_data = zeros(1, duration); 
+
+v_0 = 0.5;  
+t_c = 0.01; 
+sensor_pin = 'A0';
+disp('Data logging started. Please wait for 10 minutes...');
+
+
+for t = 1:duration
+    
+    voltage = readVoltage(a, sensor_pin);
+    
+    temperature = (voltage - v_0) / t_c;
+    
+    time_data(t) = t;
+    temp_data(t) = temperature;
+    
+    pause(1);
+    
+    if mod(t, 60) == 0
+        fprintf('Progress: Logged %d minute(s)...\n', t/60);
+    end
+end
+
+disp('Data acquisition completed.');
+
+disp('Performing statistical calculations and generating plot...');
+
+min_temp = min(temp_data);
+max_temp = max(temp_data);
+avg_temp = mean(temp_data);
+
+fprintf('\n--- Statistical Results Preview ---\n');
+fprintf('Minimum Temperature: %.2f C\n', min_temp);
+fprintf('Maximum Temperature: %.2f C\n', max_temp);
+fprintf('Average Temperature: %.2f C\n', avg_temp);
+
+figure; 
+plot(time_data, temp_data, 'b-', 'LineWidth', 1.5); 
+title('Capsule Temperature Monitoring over 10 Minutes'); 
+
+xlabel('Time (s)'); 
+
+ylabel('Temperature (^{\circ}C)'); 
+
+grid on; 
+
+disp('Plot generated successfully! Please save this plot as an image and include it in your Word template.');
+
+%% --- Phase 4: Format Output and Write to Log File ---
+
+disp('Formatting data and creating log file...');
+
+current_date = datestr(now, '04/05/2026'); 
+location = 'Nottingham'; 
+
+log_text = sprintf('Data logging initiated - %s\n\nLocation - %s\n\n', current_date, location);
+
+for m = 0:10
+    if m == 0
+        idx = 1; % Minute 0 refers to the 1st second (index 1)
+    else
+        idx = m * 60; % Minute 1 is 60s, Minute 2 is 120s, etc.
+    end
+   
+    log_text = [log_text, sprintf('Minute\t%d\tTemperature\t%.2f C\n\n', m, current_temp)];
+end
+
+log_text = [log_text, sprintf('Max temp\t\t%.2f C\n\n', max_temp)];
+log_text = [log_text, sprintf('Min temp\t\t%.2f C\n\n', min_temp)];
+log_text = [log_text, sprintf('Average temp\t%.2f C\n\n', avg_temp)];
+log_text = [log_text, sprintf('Data logging terminated\n')];
+
+disp(log_text);
+
+fileID = fopen('capsule_temperature.txt', 'w');
+
+fprintf(fileID, '%s', log_text);
+
+fclose(fileID);
+
+disp('Log file "capsule_temperature.txt" created and saved successfully!');
+
+
+
+%% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
+
+% Insert answers here
+
+
+%% TASK 3 - ALGORITHMS – TEMPERATURE PREDICTION [30 MARKS]
+
+% Insert answers here
+
+
+%% TASK 4 - REFLECTIVE STATEMENT [5 MARKS]
+
+% Insert answers here
