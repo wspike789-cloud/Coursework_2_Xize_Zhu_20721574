@@ -72,8 +72,6 @@ grid on;
 
 disp('Plot generated successfully! Please save this plot as an image and include it in your Word template.');
 
-%% --- Phase 4: Format Output and Write to Log File ---
-
 disp('Formatting data and creating log file...');
 
 current_date = datestr(now, '04/05/2026'); 
@@ -87,7 +85,7 @@ for m = 0:10
     else
         idx = m * 60; % Minute 1 is 60s, Minute 2 is 120s, etc.
     end
-   
+    current_temp = temp_data(idx);
     log_text = [log_text, sprintf('Minute\t%d\tTemperature\t%.2f C\n\n', m, current_temp)];
 end
 
