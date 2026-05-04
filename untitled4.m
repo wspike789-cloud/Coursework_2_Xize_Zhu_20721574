@@ -55,6 +55,12 @@ min_temp = min(temp_data);
 max_temp = max(temp_data);
 avg_temp = mean(temp_data);
 
+fprintf('\n--- Statistical Results Preview ---\n');
+fprintf('Minimum Temperature: %.2f C\n', min_temp);
+fprintf('Maximum Temperature: %.2f C\n', max_temp);
+fprintf('Average Temperature: %.2f C\n', avg_temp);
+
+
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
 % Insert answers here
