@@ -72,6 +72,17 @@ grid on;
 
 disp('Plot generated successfully! Please save this plot as an image and include it in your Word template.');
 
+%% --- Phase 4: Format Output and Write to Log File ---
+
+disp('Formatting data and creating log file...');
+
+current_date = datestr(now, '04/05/2026'); 
+location = 'Nottingham'; 
+
+log_text = sprintf('Data logging initiated - %s\n\nLocation - %s\n\n', current_date, location);
+
+
+
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
 % Insert answers here
