@@ -4,7 +4,6 @@
 
 %% PRELIMINARY TASK - ARDUINO AND GIT INSTALLATION [5 MARKS]
 
-% Insert answers here
 if ~exist('a', 'var')
     a = arduino('COM3', 'Uno'); 
 end
@@ -24,7 +23,11 @@ disp('Preliminary task completed successfully!');
 
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
 
-% Insert answers here
+%% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
+
+duration = 600; 
+time_data = zeros(1, duration); 
+temp_data = zeros(1, duration); 
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
