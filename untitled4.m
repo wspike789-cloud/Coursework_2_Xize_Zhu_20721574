@@ -106,7 +106,13 @@ fclose(fileID);
 
 disp('Log file "capsule_temperature.txt" created and saved successfully!');
 
-
+check_fileID = fopen('capsule_temperature.txt', 'r');
+if check_fileID ~= -1
+    disp('File check passed: Matlab successfully opened the generated log file.');
+    fclose(check_fileID); % Close it again after checking
+else
+    disp('Error: Could not open the log file for checking.');
+end
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
