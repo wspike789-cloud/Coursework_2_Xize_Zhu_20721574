@@ -91,6 +91,20 @@ for m = 0:10
     log_text = [log_text, sprintf('Minute\t%d\tTemperature\t%.2f C\n\n', m, current_temp)];
 end
 
+log_text = [log_text, sprintf('Max temp\t\t%.2f C\n\n', max_temp)];
+log_text = [log_text, sprintf('Min temp\t\t%.2f C\n\n', min_temp)];
+log_text = [log_text, sprintf('Average temp\t%.2f C\n\n', avg_temp)];
+log_text = [log_text, sprintf('Data logging terminated\n')];
+
+disp(log_text);
+
+fileID = fopen('capsule_temperature.txt', 'w');
+
+fprintf(fileID, '%s', log_text);
+
+fclose(fileID);
+
+disp('Log file "capsule_temperature.txt" created and saved successfully!');
 
 
 
