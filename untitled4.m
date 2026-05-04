@@ -5,7 +5,23 @@
 %% PRELIMINARY TASK - ARDUINO AND GIT INSTALLATION [5 MARKS]
 
 % Insert answers here
-a = arduino();
+if ~exist('a', 'var')
+    a = arduino('COM3', 'Uno'); 
+end
+led_pin = 'A0'; 
+
+disp('Arduino connection established. Starting LED blink test...');
+for i = 1:10
+writeDigitalPin(a, led_pin, 1);
+pause(0.5);
+writeDigitalPin(a, led_pin, 0);
+pause(0.5); 
+    
+end
+
+disp('Preliminary task completed successfully!');
+
+
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
 
 % Insert answers here
