@@ -29,6 +29,12 @@ duration = 600;
 time_data = zeros(1, duration); 
 temp_data = zeros(1, duration); 
 
+v_0 = 0.5;  
+t_c = 0.01; 
+sensor_pin = 'A0';
+disp('Data logging started. Please wait for 10 minutes...');
+
+
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
 % Insert answers here
