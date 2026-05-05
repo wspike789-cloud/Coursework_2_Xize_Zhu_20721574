@@ -30,5 +30,25 @@ function temp_monitor(a)
             current_time = toc(start_time); 
             
             
-    
-    
+            time_data = [time_data, current_time];
+            temp_data = [temp_data, current_temp];
+            
+           
+            set(h_plot, 'XData', time_data, 'YData', temp_data);
+            
+            
+            if current_time > 20
+                xlim([current_time - 20, current_time + 5]);
+            else
+                xlim([0, 25]);
+            end
+            drawnow; 
+        end
+        
+        if isempty(temp_data)
+            continue; 
+        end
+        
+        latest_temp = temp_data(end); 
+        
+       
