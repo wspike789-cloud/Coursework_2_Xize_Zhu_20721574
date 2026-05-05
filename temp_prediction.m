@@ -18,3 +18,25 @@ time_data = [];
     grid on;
     
     disp('Prediction system started. Press Ctrl+C to stop.');
+
+    while true
+        pause(1); 
+        
+       
+        v_out = readVoltage(a, 'A0');
+        current_temp = (v_out - 0.5) / 0.01; 
+        current_time = toc(start_time);
+        
+        
+        time_data = [time_data, current_time];
+        temp_data = [temp_data, current_temp];
+        
+        
+        set(h_plot, 'XData', time_data, 'YData', temp_data);
+        if current_time > 30
+            xlim([current_time - 30, current_time + 5]);
+        else
+            xlim([0, 35]);
+        end
+        drawnow;
+        
