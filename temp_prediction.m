@@ -58,19 +58,19 @@ time_data = [];
             
             if rate_per_sec > threshold
                 
-                writeDigitalPin(a, 'D10', 0); % 绿关
-                writeDigitalPin(a, 'D11', 0); % 黄关
-                writeDigitalPin(a, 'D12', 1); % 红亮 (假设D12是红灯)
+                writeDigitalPin(a, 'D10', 0); 
+                writeDigitalPin(a, 'D11', 0); 
+                writeDigitalPin(a, 'D12', 1); 
                 
             elseif rate_per_sec < -threshold
                 
-                writeDigitalPin(a, 'D10', 0); % 绿关
-                writeDigitalPin(a, 'D11', 1); % 黄亮 (假设D11是黄灯)
-                writeDigitalPin(a, 'D12', 0); % 红关
+                writeDigitalPin(a, 'D10', 0); 
+                writeDigitalPin(a, 'D11', 1); 
+                writeDigitalPin(a, 'D12', 0); 
                 
             else
                 
-                writeDigitalPin(a, 'D10', 1); % 绿亮 (假设D10是绿灯)
+                writeDigitalPin(a, 'D10', 1); 
                 writeDigitalPin(a, 'D11', 0); 
                 writeDigitalPin(a, 'D12', 0); 
             end
