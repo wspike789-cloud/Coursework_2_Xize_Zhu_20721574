@@ -8,5 +8,19 @@ function temp_monitor(a)
     counter = 0;      
     led_state = 0;   
     
+    figure('Name', 'Live Temperature Monitor');
+    h_plot = plot(NaN, NaN, 'b-', 'LineWidth', 1.5);
+    title('Real-time Capsule Temperature');
+    xlabel('Time (s)');
+    ylabel('Temperature (^{\circ}C)');
+    grid on;
+    
+    disp('Monitoring started. Press Ctrl+C in Command Window to stop.');
 
+    while true
+       
+        pause(0.25); 
+        counter = counter + 1;
+        
+    
     
