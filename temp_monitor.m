@@ -58,6 +58,25 @@ function temp_monitor(a)
             writeDigitalPin(a, 'D11', 0);
             writeDigitalPin(a, 'D12', 0);
             
+        elseif latest_temp < 18
+            
+            writeDigitalPin(a, 'D10', 0);
+            writeDigitalPin(a, 'D12', 0);
+            
+            if mod(counter, 2) == 0
+                led_state = ~led_state; 
+                writeDigitalPin(a, 'D11', led_state); 
+            end
+            elseif latest_temp > 24
+            
+            writeDigitalPin(a, 'D10', 0);
+            writeDigitalPin(a, 'D11', 0);
+            
+            led_state = ~led_state;
+            writeDigitalPin(a, 'D12', led_state); 
+        end
+    end
+end
         
     
     
