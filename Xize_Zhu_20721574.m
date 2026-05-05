@@ -3,13 +3,18 @@
 
 
 %% PRELIMINARY TASK - ARDUINO AND GIT INSTALLATION [5 MARKS]
+% Check if the Arduino object 'a' already exists in the workspace
+% This prevents MATLAB from reconnecting and throwing an error if it's already connected
 if ~exist('a', 'var')
+    % Initialize the connection to the Arduino Uno on port COM3
     a = arduino('COM3', 'Uno'); 
 end
+% Assign the digital pin connected to the test LED
 led_pin = 'D13'; 
 
-
+% Print a status message to the Command Window
 disp('Arduino connection established. Starting LED blink test...');
+% Create a loop to make the LED blink 10 times
 for i = 1:10
 writeDigitalPin(a, led_pin, 1);
 pause(0.5);
@@ -17,7 +22,7 @@ writeDigitalPin(a, led_pin, 0);
 pause(0.5); 
     
 end
-
+% Notify the user that the loop has finished
 disp('Preliminary task completed successfully!');
 
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
