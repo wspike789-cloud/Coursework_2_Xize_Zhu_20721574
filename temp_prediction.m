@@ -39,4 +39,19 @@ time_data = [];
             xlim([0, 35]);
         end
         drawnow;
-        
+        if length(temp_data) > 5
+            
+            
+            T_current = temp_data(end);
+            T_past_5s = temp_data(end - 5); 
+            
+            
+            rate_per_sec = (T_current - T_past_5s) / 5;
+            
+           
+            T_predict = T_current + (rate_per_sec * 300);
+            
+            
+            fprintf('Rate: %+.3f C/s | Predicted (in 5 mins): %.2f C\n', rate_per_sec, T_predict);
+
+            
