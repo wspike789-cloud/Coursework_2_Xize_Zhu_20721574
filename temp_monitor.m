@@ -1,5 +1,9 @@
 function temp_monitor(a)
-
+% TEMP_MONITOR Live temperature tracking and LED warning system.
+% This function continuously reads capsule temperature from Arduino (A0).
+% It updates a live graph every 1s. It also controls 3 LEDs: 
+% Green (constant) for 18-24 C, Yellow (blinking 0.5s) for <18 C, 
+% and Red (blinking 0.25s) for >24 C.
 
 
     time_data = [];

@@ -8,6 +8,7 @@ if ~exist('a', 'var')
 end
 led_pin = 'D13'; 
 
+
 disp('Arduino connection established. Starting LED blink test...');
 for i = 1:10
 writeDigitalPin(a, led_pin, 1);
