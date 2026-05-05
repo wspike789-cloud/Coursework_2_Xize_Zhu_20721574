@@ -21,6 +21,14 @@ function temp_monitor(a)
        
         pause(0.25); 
         counter = counter + 1;
-        
+        if mod(counter, 4) == 0
+            
+            v_out = readVoltage(a, 'A0');
+            
+            current_temp = (v_out - 0.5) / 0.01; 
+            
+            current_time = toc(start_time); 
+            
+            
     
     
