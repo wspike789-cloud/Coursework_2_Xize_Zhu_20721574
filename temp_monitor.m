@@ -51,4 +51,14 @@ function temp_monitor(a)
         
         latest_temp = temp_data(end); 
         
-       
+        
+        if latest_temp >= 18 && latest_temp <= 24
+            
+            writeDigitalPin(a, 'D10', 1); 
+            writeDigitalPin(a, 'D11', 0);
+            writeDigitalPin(a, 'D12', 0);
+            
+        
+    
+    
+        
